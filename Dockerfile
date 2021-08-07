@@ -1,6 +1,6 @@
 FROM ruby:3.0-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 RUN gem install bundler
 
