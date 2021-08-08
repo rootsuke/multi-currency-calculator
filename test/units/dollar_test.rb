@@ -6,11 +6,17 @@ class DollarTest < MiniTest::Test
 
   def test_multiplication
     five = Dollar.new(5)
-    product = five.times(2)
-    assert_equal(10, product.amount)
+    ten = Dollar.new(10)
+    assert(five.times(2).equals(ten))
   
-    product = five.times(3)
-    assert_equal(15, product.amount)
+    fifteen = Dollar.new(15)
+    assert(five.times(3).equals(fifteen))
+  end
+
+  def test_equality
+    assert(Dollar.new(5).equals(Dollar.new(5)))
+
+    assert_not(Dollar.new(5).equals(Dollar.new(6)))
   end
 
 end
