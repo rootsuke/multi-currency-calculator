@@ -3,7 +3,7 @@ require "test_helper"
 require "dollar"
 require "franc"
 
-class DollarTest < MiniTest::Test
+class MoneyTest < MiniTest::Test
 
   def test_multiplication
     five = Dollar.new(5)
@@ -16,8 +16,12 @@ class DollarTest < MiniTest::Test
 
   def test_equality
     assert(Dollar.new(5).equals(Dollar.new(5)))
-
     assert_not(Dollar.new(5).equals(Dollar.new(6)))
+
+    assert(Franc.new(5).equals(Franc.new(5)))
+    assert_not(Franc.new(5).equals(Franc.new(6)))
+
+    assert_not(Dollar.new(5).equals(Franc.new(5)))
   end
 
   def test_franc_multiplication
